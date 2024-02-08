@@ -1,0 +1,12 @@
+@import "../../styles/variables.scss";
+
+.dropdown {
+  &__toggle {
+    background-color: $brand-color;
+    border: 1px solid $brand-color;
+
+    &:hover {
+      background-color: rgb(23, 186, 186);
+    }
+  }
+}

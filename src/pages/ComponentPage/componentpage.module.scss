@@ -1,0 +1,8 @@
+@import "../../styles/variables.scss";
+
+.componentpage {
+  .container {
+    max-width: $container-width;
+    margin: 0 auto;
+  }
+}

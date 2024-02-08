@@ -1,0 +1,60 @@
+@import "../../styles/variables.scss";
+
+.header {
+  background-color: #fff;
+  border-bottom: 1px solid #000000;
+  padding: 22px;
+  .container {
+    max-width: $container-width;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__logo {
+    font-size: 30px;
+  }
+
+  &__profile {
+    display: flex;
+    gap: 15px;
+    position: relative;
+    align-items: center;
+  }
+}
+.profileInfoContainer {
+  position: absolute;
+  top: 75px;
+  // top: 100%;
+  right: 0;
+  z-index: 1;
+}
+.disabled {
+  pointer-events: none; /* делает элемент некликабельным */
+  opacity: 0.5; /* делает элемент полупрозрачным */
+}
+
+.cart {
+  position: relative;
+
+  &_badge {
+    color: white;
+    background-color: #33cccc;
+    line-height: 20px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+  }
+}
+
+
+.login {
+  font-size: 20px;
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
