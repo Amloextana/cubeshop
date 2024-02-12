@@ -48,10 +48,7 @@ function App() {
         {
           method: "GET",
           withCredentials: true,
-          // headers: {
-          //   "Content-type": "application/json; charset=UTF-8",
-          //   Authorization: `Bearer ${cookies.get("access_token")}`,
-          // },
+
         }
       )
       console.log(response.data)
@@ -79,10 +76,7 @@ function App() {
       const response = await axios(`http://localhost:8000/components/${params}`, {
         method: "GET",
         withCredentials: true,
-        // headers: {
-        //   "Content-type": "application/json; charset=UTF-8",
-        //   Authorization: `Bearer ${cookies.get("access_token")}`,
-        // },
+
       })
       console.log(response)
       const components = response.data.components
@@ -194,16 +188,6 @@ function App() {
         <Route
           path="/cubeshop/application/:id"
           element={<CartPage />}
-        />
-
-        <Route
-          path="/cubeshop/components-list"
-          element={<ComponentsList />}
-        />
-
-        <Route
-          path="/cubeshop/components-list/:id"
-          element={<ComponentAdminPanel />}
         />
       </Routes>
       <ToastContainer autoClose={1000} pauseOnHover={false} />

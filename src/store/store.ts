@@ -3,7 +3,7 @@ import Component, { componentData } from "../types"
 import userReducer from "./userSlice"
 import filterReducer from "./filtersSlices"
 import cartReducer from "./cartSlice"
-import moderAppReducer from "./moderAppSlice"
+
 
 export interface RootState {
   user: {
@@ -23,10 +23,7 @@ export interface RootState {
   cart: {
     items: componentData[]
   }
-  moderApp: {
-    input_value: string
-    dropdown_value: Component
-  }
+
 }
 
 const store = configureStore({
@@ -34,7 +31,7 @@ const store = configureStore({
     user: userReducer,
     filter: filterReducer,
     cart: cartReducer,
-    moderApp: moderAppReducer,
+
   },
 })
 
