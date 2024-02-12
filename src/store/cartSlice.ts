@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 import { componentData } from "../types"
 
+
 interface cartData {
   items: componentData[]
 }

@@ -1,5 +1,4 @@
 import ComponentInfo from "./ComponentInfo/ComponentInfo";
-
 import styles from "./componentpage.module.scss";
 import { useParams } from "react-router-dom";
 

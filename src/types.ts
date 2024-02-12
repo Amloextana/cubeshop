@@ -6,6 +6,7 @@ export default interface Component {
   name: string
 }
 
+
 export interface componentData {
   id: number
   title: string

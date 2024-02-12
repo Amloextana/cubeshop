@@ -4,7 +4,6 @@ import userReducer from "./userSlice"
 import filterReducer from "./filtersSlices"
 import cartReducer from "./cartSlice"
 
-
 export interface RootState {
   user: {
     user_id: BigInteger

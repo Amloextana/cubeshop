@@ -7,3 +7,4 @@ export default defineConfig({
   base: "/cubeshop/",
   plugins: [react()],
 });
+

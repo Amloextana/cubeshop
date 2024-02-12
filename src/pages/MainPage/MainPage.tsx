@@ -28,6 +28,7 @@ interface MainPageProps {
   loading: boolean
 }
 
+
 const MainPage: React.FC<MainPageProps> = ({ loading }) => {
   const dispatch = useDispatch();
   const [searchValue, setSearchValue] = useState(""); // Use local state for search value

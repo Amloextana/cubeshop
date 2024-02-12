@@ -1,5 +1,6 @@
 export const DOMEN = "http://127.0.0.1:8000/"
 
+
 export const CATEGORIES = [
   {
     id: 0,

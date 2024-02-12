@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import Component from "../types";
 
+
 const initialState = {
   price_range: [0, 10000],
   input_value: "",

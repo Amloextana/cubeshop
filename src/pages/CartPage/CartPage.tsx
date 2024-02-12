@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 
+
 const CartPage = () => {
   return (
     <div className={styles.cartpage}>
