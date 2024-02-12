@@ -55,7 +55,7 @@ const Header = () => {
               >
                 <div className={styles.cart}>
                   <img src={cartSvg} alt="Cart" />
-                  <div className={styles.cart_badge}>{cart}</div>
+
                 </div>
               </Link>
             ) : (

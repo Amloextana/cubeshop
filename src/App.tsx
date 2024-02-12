@@ -9,7 +9,6 @@ import AuthPage from "./pages/AuthPage/AuthPage"
 import ApplicationsHistoryTable from "./components/ApplicationsHistoryTable/ApplicationsHistoryTable"
 import { useDispatch, useSelector } from "react-redux"
 import axios from "axios"
-// import store from "./store/store";
 import Cookies from "universal-cookie"
 import { Response, cardInfoProps } from "./types"
 import { updateCart, updateUser } from "./store/userSlice"
@@ -168,29 +167,40 @@ function App() {
           path="/"
           element={<Navigate to="/cubeshop/" replace />}
         />
+
         <Route
           path="/cubeshop/"
           element={<MainPage loading={isLoading} />}
         />
-        <Route path="/cubeshop/:id" element={<ComponentPage />} />
+
+        <Route path="/cubeshop/:id"
+         element={<ComponentPage />} 
+        />
+         
         <Route
           path="/cubeshop/registration"
           element={<RegPage />}
         />
-        <Route path="/cubeshop/auth" element={<AuthPage />} />
+
+        <Route path="/cubeshop/auth"
+         element={<AuthPage />} 
+        />
+
         <Route
           path="/cubeshop/history"
           element={<ApplicationsHistoryPage />}
         />
-        <Route path="/cubeshop/cart" element={<CartPage />} />
+
         <Route
           path="/cubeshop/application/:id"
           element={<CartPage />}
         />
+
         <Route
           path="/cubeshop/components-list"
           element={<ComponentsList />}
         />
+
         <Route
           path="/cubeshop/components-list/:id"
           element={<ComponentAdminPanel />}

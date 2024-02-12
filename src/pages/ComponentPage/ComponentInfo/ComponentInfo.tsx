@@ -110,7 +110,7 @@ const ComponentInfo: React.FC<ComponentInfoProps> = ({ id }) => {
         </div>
         <div className={styles.componentinfo__common_actions}>
           <div className={styles.componentinfo__common_price}>
-            {info && info.price} $
+            {info && info.price} ₽
           </div>
           <Button onClick={() => addComponentToCart(Number(id))}>В корзину</Button>
         </div>

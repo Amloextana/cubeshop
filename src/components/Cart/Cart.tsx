@@ -163,7 +163,7 @@ const Cart = () => {
               key={component.id}
               {...component}
               onDelete={deleteItem}
-              onAmountUpdate={updateAmount}
+
               updateAllow={true}
             />
           ))}

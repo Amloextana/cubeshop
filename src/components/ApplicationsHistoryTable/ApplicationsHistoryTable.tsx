@@ -221,7 +221,6 @@ const ApplicationsHistoryTable = () => {
           >
             Подробнее&gt;
           </Link>
-          // <Button onClick={() => console.log("aaa")}>Открыть</Button>
         ),
       },
       {
@@ -257,37 +256,51 @@ const ApplicationsHistoryTable = () => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data, initialState })
 
-  const selectionRange = {
-    startDate: startDate,
-    endDate: endDate,
-    key: "selection",
-  }
 
-  const handleSelectDateRange = (date: RangeKeyDict) => {
-    if (
-      !date.selection ||
-      !date.selection.startDate ||
-      !date.selection.endDate
-    ) {
-      return
-    }
 
-    // let filtered = applicationRange.filter((product) => {
-    //   let productDate = new Date(product["created_at"])
-    //   return (
-    //     productDate >= date.selection.startDate &&
-    //     productDate <= date.selection.endDate
-    //   )
-    // })
-    setStartDate(date.selection.startDate)
-    setEndDate(date.selection.endDate)
-    // setApplication(filtered) //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    console.log(startDate)
-    console.log(endDate)
-  }
+  const handleStartDateChange = (date: string) => {
+    const parsedDate = new Date(date);
+    return setStartDate(parsedDate);
+};
+
+const handleEndDateChange = (date: string) => {
+  const parsedDate = new Date(date);
+  return setEndDate(parsedDate);
+};
+
   return (
     <div className={styles.page_inner}>
       <div className={styles.content}>
+      {isModerator && (
+        
+        <div className={styles.filters}>
+          <div className={styles.filters__text}>
+          
+            <Input
+              className={styles.input}
+              searchValue={searchValue}
+              onChangeValue={(i) => dispatch(setAppInputValue(i))}
+
+            />
+            
+            <DropDown 
+              handleSelect={handleSelect}
+              components={STATUSES}
+              title={categoryValue.name}
+            />
+            <label>
+            Дата создания С:
+            <input  type="date" onChange={(e) => handleStartDateChange(e.target.value)}/>
+            </label>
+
+            <label>
+            До:
+            <input  type="date" onChange={(e) => handleEndDateChange(e.target.value)}/>
+            </label>
+          </div>
+        
+        </div>
+      )}
         <table {...getTableProps()}>
           <thead>
             {headerGroups.map((headerGroup) => (
@@ -314,33 +327,7 @@ const ApplicationsHistoryTable = () => {
           </tbody>
         </table>
       </div>
-      {isModerator && (
-        <div className={styles.filters}>
-          <div className={styles.filters__text}>
-            <Input
-              className={styles.input}
-              searchValue={searchValue}
-              onChangeValue={(i) => dispatch(setAppInputValue(i))}
-            />
-            <DropDown
-              handleSelect={handleSelect}
-              components={STATUSES}
-              title={categoryValue.name}
-            />
-          </div>
 
-          <div className={styles.filters__date}>
-            <DateRange
-              // locale={ru}
-              showDateDisplay={false}
-              className={styles.date}
-              rangeColors={["#33cccc", "#3ecf8e", "#fed14c"]}
-              ranges={[selectionRange]}
-              onChange={handleSelectDateRange}
-            />
-          </div>
-        </div>
-      )}
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useState } from "react"
 import { Link } from "react-router-dom"
 import Card from "../../components/Card/Card"
 import DropDown from "../../components/Dropdown/Dropdown"
@@ -27,11 +27,11 @@ import { setCart } from "../../store/cartSlice"
 interface MainPageProps {
   loading: boolean
 }
+
 const MainPage: React.FC<MainPageProps> = ({ loading }) => {
-  const dispatch = useDispatch()
-  const searchValue = useSelector(
-    (state: RootState) => state.filter.input_value
-  )
+  const dispatch = useDispatch();
+  const [searchValue, setSearchValue] = useState(""); // Use local state for search value
+
   const categoryValue = useSelector(
     (state: RootState) => state.filter.dropdown_value.name
   )
@@ -66,24 +66,6 @@ const MainPage: React.FC<MainPageProps> = ({ loading }) => {
     }
   }
 
-  const currentCart = useSelector((state: RootState) => state.user.current_cart)
-  const fetchCart = async () => {
-    try {
-      const response: Response = await axios(
-        `http://localhost:8000/applications/${currentCart}`,
-        {
-          method: "GET",
-          // withCredentials: true,
-        }
-      )
-      console.log(response.data)
-      const components = response.data.components
-      dispatch(setCart(components))
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
   const cardAddButtonClick = (
     id: number,
     e: React.MouseEvent<HTMLButtonElement>
@@ -91,30 +73,29 @@ const MainPage: React.FC<MainPageProps> = ({ loading }) => {
     e.stopPropagation()
     e.preventDefault()
     addComponentToApp(id)
-    setTimeout(() => {
-      fetchCart()
-    }, 200)
   }
-  useEffect(() => {
-    fetchCart()
-  }, [])
+
+
 
   const handleSelect = (selectedComponent: Component) => {
     dispatch(setDropdownValueName(selectedComponent.name))
     dispatch(setDropdownValueId(selectedComponent.id))
   }
 
+  const search = () => {
+    dispatch(setInputValue(searchValue));
+  };
+
   return (
     <div className={styles.mainpage}>
       <div className={styles.container}>
-
         <div className={styles.mainpage__actions}>
           <div className={styles.mainpage__input}>
             <Input
               searchValue={searchValue}
-              onChangeValue={(i) => dispatch(setInputValue(i))}
+              onChangeValue={(i) => setSearchValue(i)}
             />
-            <Button>Поиск</Button>
+            <Button onClick={search}>Поиск</Button>
           </div>
           <div className={styles.mainpage__filters}>
             <DropDown
@@ -124,7 +105,6 @@ const MainPage: React.FC<MainPageProps> = ({ loading }) => {
             />
           </div>
         </div>
-
         <div className={styles.mainpage__inner}>
           {loading
             ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
