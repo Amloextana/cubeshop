@@ -16,11 +16,10 @@ export const CATEGORIES = [
   {
     id: 3,
     name: "Вычислительный модуль",
-  },
-
-
-  
+  }, 
 ]
+
+
 export const STATUSES = [
   {
     id: 0,
@@ -104,6 +103,4 @@ export const ComponentsMock = [
     price: 6700,
     image: "src/assets/mockImg/bvm.jpg",
   },
-
-
 ]

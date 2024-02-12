@@ -271,18 +271,17 @@ const handleEndDateChange = (date: string) => {
   return (
     <div className={styles.page_inner}>
       <div className={styles.content}>
+      
       {isModerator && (
-        
         <div className={styles.filters}>
-          <div className={styles.filters__text}>
-          
             <Input
               className={styles.input}
               searchValue={searchValue}
               onChangeValue={(i) => dispatch(setAppInputValue(i))}
-
             />
-            
+            </div>
+              )}
+            <div className={styles.filters}>
             <DropDown 
               handleSelect={handleSelect}
               components={STATUSES}
@@ -297,10 +296,8 @@ const handleEndDateChange = (date: string) => {
             До:
             <input  type="date" onChange={(e) => handleEndDateChange(e.target.value)}/>
             </label>
-          </div>
-        
-        </div>
-      )}
+            </div>
+    
         <table {...getTableProps()}>
           <thead>
             {headerGroups.map((headerGroup) => (
