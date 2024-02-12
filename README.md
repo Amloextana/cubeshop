@@ -7,3 +7,5 @@ https://github.com/Amloextana/cubeshop-native
 https://github.com/Amloextana/cubeshop-async
 # Фронтенд:
 https://github.com/Amloextana/cubeshop
+# Pages
+https://amloextana.github.io/cubeshop/
