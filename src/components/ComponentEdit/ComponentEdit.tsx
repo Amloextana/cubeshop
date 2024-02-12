@@ -159,21 +159,21 @@ const ComponentEdit = () => {
     <div className={styles["edit-form"]}>
       <form className={styles["edit-form__block"]} onSubmit={handleSubmit}>
         <div className={styles["edit-form__block_text"]}>
-          <h1>Внесние новой опции</h1>
+          <h1>Компонент </h1>
           <div className={styles["edit-form__block_input-form"]}>
             <div className={styles["edit-form__block_input-title"]}>
-              Укажите название нового компонента:
+              Название компонента:
             </div>
             <input
               name="title"
               type="text"
               className={styles["edit-form__block_input"]}
-              placeholder="Название опции..."
+              placeholder="Название компонента..."
             ></input>
           </div>
           <div className={styles["edit-form__block_input-form"]}>
             <div className={styles["edit-form__block_input-title"]}>
-              Укажите описание нового компонента:
+              Описание компонента:
             </div>
             <input
               name="description"
@@ -184,7 +184,7 @@ const ComponentEdit = () => {
           </div>
           <div className={styles["edit-form__block_input-form"]}>
             <div className={styles["edit-form__block_input-title"]}>
-              Укажите стоимость нового компонента:
+              Стоимость компонента:
             </div>
             <input
               name="price"
@@ -197,7 +197,7 @@ const ComponentEdit = () => {
 
           <div className={styles["edit-form__block_input-form"]}>
             <div className={styles["edit-form__block_input-title"]}>
-              Укажите наличие  нового компонента:
+              Наличие компонента:
             </div>
             <DropDown
               handleSelect={handleStatusChange}
@@ -207,7 +207,7 @@ const ComponentEdit = () => {
           </div>
           <div className={styles["edit-form__block_input-form"]}>
             <div className={styles["edit-form__block_input-title"]}>
-              Укажите категорию  нового компонента:
+              Категория компонента:
             </div>
             <DropDown
               handleSelect={handleCategoryChange}
